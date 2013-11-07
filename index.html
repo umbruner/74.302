@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<meta charset=utf-8 />
+<title>Transit Trip Planner</title>
+
+<style id="jsbin-css">
+
+@font-face {
+    font-family: 'GothamBold';
+    src: url('GothamBold.ttf') format('truetype');
+}
+
+body{
+	font-family: 'Arial', sans-serif;
+}
+
+#outerContainer {
+	/*border-width: 1px;
+	border-color: black;
+	border-style: solid;*/
+	width: 903px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#logoContainer {
+  position: relative;
+  height: 135px;
+  width: 901px;
+  /*border-width: 1px;
+  border-color: black;
+  border-style: solid;*/
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  margin-bottom: 30px;
+  margin-top: 35px;
+}
+
+#backBtn {
+	display: none;
+	position: relative;
+	width: 66px;
+	height: 66px;
+	/*border-width: 1px;
+	border-color: black;
+	border-style: solid;*/
+	margin-left: -75px;
+	background-image:url('back_btn-PNG.png');
+	cursor: pointer;
+	opacity: 1;
+}
+
+#backBtn:hover {
+	opacity: 0.7;
+}
+
+#boxContainer {
+  position: relative;
+  height: 570px; /*380*/
+  width: 903px; /*603*/
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 35px;
+  z-index: 1;
+}
+
+
+#plan {
+  background-color: #DB5902;
+  height: 263px;
+  width: 428px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#plan:hover {
+  background-color: #E37C36 !important;
+}
+
+#planDiv {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 890px;
+  height: 527px;
+  display: none;
+  z-index: 20;
+  background-color: #FFFFFF;
+}
+
+.label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: -6px;
+  margin-left: 3px;
+  font-family: 'GothamBold', 'Arial', sans-serif;
+  color: #FFFFFF;
+  font-size:280%;
+  -webkit-user-select: none;      
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+
+#schedule {
+  background-color: #477725;
+  height: 263px;
+  width: 428px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#schedule:hover {
+  background-color: #6FA349 !important;
+}
+
+
+#info {
+  background-color: #222B5E;
+  height: 263px;
+  width: 428px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#info:hover {
+  background-color: #3B478A !important;
+}
+
+
+#glance {
+  background-color: #4D5259;
+  height: 263px;
+  width: 428px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+}
+
+#footer {
+	/*border-width: 1px;
+	border-color: black;
+	border-style: solid;*/
+	font-size:x-large;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div id="outerContainer"> 
+
+
+<div id="logoContainer">
+	<img src="transit_logo-3.png">
+</div>
+
+
+<div id="boxContainer"> 
+  
+	<div id="backBtn">
+	</div>
+	
+	<div id="planDiv">
+		Some sort of application goes here...
+	</div>
+  
+	<div id="plan">
+		<div class="label">
+		PLAN A TRIP
+		</div>
+	</div>
+  
+	<div id="schedule">
+		<div class="label">
+		SEE SCHEDULES
+		</div>
+	</div>
+  
+	<div id="info">
+		<div class="label">
+		MORE INFO
+		</div>
+	</div>
+  
+	<div id="glance">
+	</div>
+  
+</div>
+
+
+<div id="footer">
+	<center>
+		<a href="#">Privacy Policy</a> &nbsp|&nbsp <a href="#">Site Map</a> &nbsp|&nbsp <a href="#">Contact Us</a> &nbsp|&nbsp <a href="#">Help</a>
+	</center>
+</div>
+ 
+ 
+</div> <!--end outerContainer-->
+  
+
+<script>
+var globalVars = {};
+
+$(document).ready(function(){
+
+	globalVars.activeDiv = "";
+
+	$('#plan').click(function() {
+	  $(this).css('z-index',9);
+	  $(this).css('background-color','#E37C36');
+	  $(this).animate({width: ['903px', 'swing'], height: ['570px', 'swing']}, { duration: "slow", easing: "easein" });
+	  
+	  $('#backBtn').fadeIn(800);
+	  globalVars.activeDiv = "#plan";
+	  displayDiv(globalVars.activeDiv,true);
+	});
+	
+
+	$('#schedule').click(function() {
+	  $(this).css('z-index',9);
+	  $(this).css('background-color','#6FA349');
+	  $(this).animate({width: ['903px', 'swing'], height: ['570px', 'swing']}, { duration: "slow", easing: "easein" });
+	  
+	  $('#backBtn').fadeIn(800);
+	  globalVars.activeDiv = "#schedule";
+	  displayDiv(globalVars.activeDiv,true);
+	});
+
+	
+	$('#info').click(function() {
+	  $(this).css('z-index',9);
+	  $(this).css('background-color','#3B478A');
+	  $(this).animate({width: ['903px', 'swing'], height: ['570px', 'swing']}, { duration: "slow", easing: "easein" });
+	  
+	  $('#backBtn').fadeIn(800);
+	  globalVars.activeDiv = "#info";
+	  displayDiv(globalVars.activeDiv,true);
+	});
+  
+  
+	$('#backBtn').click(function() {
+		
+		$(globalVars.activeDiv).animate(
+			{width: ['428px', 'swing'], height: ['263px', 'swing']}, 
+			{ duration: "slow", easing: "easein" });
+		
+		if ( globalVars.activeDiv == "#plan" ){
+			$(globalVars.activeDiv).css('background-color','#DB5902');
+			displayDiv(globalVars.activeDiv);
+		}else if ( globalVars.activeDiv == "#schedule" ){
+			$(globalVars.activeDiv).css('background-color','#477725');
+			displayDiv(globalVars.activeDiv);
+		}else if ( globalVars.activeDiv == "#info" ){
+			$(globalVars.activeDiv).css('background-color','#222B5E');
+			displayDiv(globalVars.activeDiv);
+		}
+
+		$('#backBtn').fadeOut(600, function(){ $(globalVars.activeDiv).css('z-index',1); } );
+
+	});
+
+	
+}); //document_ready
+
+
+function displayDiv(var1,var2) {	
+	if (var2 == true){
+		$(var1 + 'Div').delay(450).fadeToggle();
+	}else{
+		$(var1 + 'Div').toggle();
+	}
+}
+
+</script>
+</body>
+</html>
+  
