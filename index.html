@@ -7,7 +7,7 @@
 <meta charset=utf-8 />
 <title>Transit Trip Planner</title>
 
-<style id="jsbin-css">
+<style id="css">
 
 @font-face {
     font-family: 'GothamBold';
@@ -19,9 +19,6 @@ body{
 }
 
 #outerContainer {
-	/*border-width: 1px;
-	border-color: black;
-	border-style: solid;*/
 	width: 903px;
 	margin-left: auto;
 	margin-right: auto;
@@ -29,17 +26,14 @@ body{
 
 
 #logoContainer {
-  position: relative;
-  height: 135px;
-  width: 901px;
-  /*border-width: 1px;
-  border-color: black;
-  border-style: solid;*/
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 1;
-  margin-bottom: 30px;
-  margin-top: 35px;
+	position: relative;
+	height: 135px;
+	width: 901px;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 1;
+	margin-bottom: 30px;
+	margin-top: 35px;
 }
 
 #backBtn {
@@ -47,9 +41,6 @@ body{
 	position: relative;
 	width: 66px;
 	height: 66px;
-	/*border-width: 1px;
-	border-color: black;
-	border-style: solid;*/
 	margin-left: -75px;
 	background-image:url('back_btn-PNG.png');
 	cursor: pointer;
@@ -61,91 +52,91 @@ body{
 }
 
 #boxContainer {
-  position: relative;
-  height: 570px; /*380*/
-  width: 903px; /*603*/
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 35px;
-  z-index: 1;
+	position: relative;
+	height: 570px; /*380*/
+	width: 903px; /*603*/
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 35px;
+	z-index: 1;
 }
 
 
 #plan {
-  background-color: #DB5902;
-  height: 263px;
-  width: 428px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  cursor: pointer;
+	background-color: #DB5902;
+	height: 263px;
+	width: 428px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	cursor: pointer;
 }
 
 #plan:hover {
-  background-color: #E37C36 !important;
+	background-color: #E37C36 !important;
 }
 
 #planDiv {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 890px;
-  height: 527px;
-  display: none;
-  z-index: 20;
-  background-color: #FFFFFF;
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	width: 890px;
+	height: 527px;
+	display: none;
+	z-index: 20;
+	background-color: #FFFFFF;
 }
 
 .label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-bottom: -6px;
-  margin-left: 3px;
-  font-family: 'GothamBold', 'Arial', sans-serif;
-  color: #FFFFFF;
-  font-size:280%;
-  -webkit-user-select: none;      
-  -moz-user-select: none;
-  -ms-user-select: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-bottom: -6px;
+	margin-left: 3px;
+	font-family: 'GothamBold', 'Arial', sans-serif;
+	color: #FFFFFF;
+	font-size:280%;
+	-webkit-user-select: none;      
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
 
 
 #schedule {
-  background-color: #477725;
-  height: 263px;
-  width: 428px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  cursor: pointer;
+	background-color: #477725;
+	height: 263px;
+	width: 428px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	cursor: pointer;
 }
 
 #schedule:hover {
-  background-color: #6FA349 !important;
+	background-color: #6FA349 !important;
 }
 
 #scheduleDiv {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 890px;
-  height: 527px;
-  display: none;
-  font-family: 'GothamBold', 'Arial', sans-serif;
-  color: #FFFFFF;
-  z-index: 20;
-  background-color: #304F19;
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	width: 890px;
+	height: 527px;
+	display: none;
+	font-family: 'GothamBold', 'Arial', sans-serif;
+	color: #FFFFFF;
+	z-index: 20;
+	background-color: #304F19;
 }
 
 #skedInput {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 220px;
-  height: 527px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	width: 220px;
+	height: 527px;
 }
 
 #scheduleDisplay {
@@ -158,42 +149,98 @@ body{
 }
 
 #info {
-  background-color: #222B5E;
-  height: 263px;
-  width: 428px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  cursor: pointer;
+	background-color: #222B5E;
+	height: 263px;
+	width: 428px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	cursor: pointer;
 }
 
 #info:hover {
-  background-color: #3B478A !important;
+	background-color: #3B478A !important;
+}
+
+#infoDiv {
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	width: 890px;
+	height: 527px;
+	display: none;
+	font-family: 'GothamBold', 'Arial', sans-serif;
+	color: #FFFFFF;
+	z-index: 20;
+	background-color: #111947;
+}
+
+#sidebar { 
+	font-size: 200%;
+	width: 150px;
+	height: 527px;
+	background-color: #FFFFFF;
+}
+
+#sidebar ul { 
+	margin: 0px; 
+	padding: 0px; 
+}
+
+#sidebar li {
+	margin-bottom: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	list-style: none;
+}
+
+#sidebar a{
+	color: #000;
+	cursor: pointer;
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	text-indent: 10px;                   
+	text-decoration: none;
+	width: 100%;
+}
+ 
+ul.firstLevel { 
+	background: #FFFFFF;
+}
+ 
+ul.firstLevel li {
+	border-bottom-color: #FFFFFF;
+	border-bottom-style: solid;
+	border-top: #FFFFFF;
+	border-bottom-style: solid;
+	border-width: 1px;
 }
 
 
 #glance {
-  background-color: #4D5259;
-  height: 263px;
-  width: 428px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 0;
+	background-color: #4D5259;
+	background-image:url('glance-PNG.png');
+	height: 263px;
+	width: 428px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 0;
+	-webkit-user-select: none;      
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
 
 #footer {
-	/*border-width: 1px;
-	border-color: black;
-	border-style: solid;*/
 	font-size:x-large;
 }
 
 #mapCanvas {
 	width: 700px;
-	height: 500px;
-	float:left;
+	height: 502px;
+	float: left;
 }
 
 #planBtnContainer {
@@ -212,7 +259,7 @@ body{
 
 #busRoutes {
 	background-color:#DB5902;
-	height:500px;
+	height:502px;
 	width:190px;
 	float:left;
 	text-align:center;
@@ -256,6 +303,7 @@ body{
 	<div id="backBtn">
 	</div>
 	
+	
 	<div id="planDiv">
 		<div id="planBtnContainer">
 			<button id="btnSave" type="button">Save</button>
@@ -272,6 +320,7 @@ body{
 		</div>
 	</div>
 
+	
 	<div id="scheduleDiv">
 		<div id="skedInput">
 			<form>
@@ -296,12 +345,26 @@ body{
 		SEE SCHEDULES
 		</div>
 	</div>
+	
+	
+	<div id="infoDiv">
+		<div id="sidebar">
+			<ul class="firstLevel">
+				<li><a href="#">About</a></li>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="#">History</a></li>
+				<li><a href="#">Maps</a></li>
+				<li><a href="#">News</a></li>
+			</ul>
+		</div>
+	</div>
   
 	<div id="info">
 		<div class="label">
 		MORE INFO
 		</div>
 	</div>
+  
   
 	<div id="glance">
 	</div>
@@ -329,6 +392,7 @@ $(document).ready(function(){
 
 	globalVars.activeDiv = "";
 
+	//click event for plan pane
 	$('#plan').click(function() {
 	  $(this).css('z-index',9);
 	  $(this).css('background-color','#E37C36');
@@ -341,7 +405,8 @@ $(document).ready(function(){
 	  displayDiv(globalVars.activeDiv,true);
 	});
 	
-
+	
+	//click event for schedule pane
 	$('#schedule').click(function() {
 	  $(this).css('z-index',9);
 	  $(this).css('background-color','#6FA349');
@@ -353,6 +418,7 @@ $(document).ready(function(){
 	});
 
 	
+	//click event for info pane
 	$('#info').click(function() {
 	  $(this).css('z-index',9);
 	  $(this).css('background-color','#3B478A');
@@ -363,7 +429,8 @@ $(document).ready(function(){
 	  displayDiv(globalVars.activeDiv,true);
 	});
   
-  
+	
+	//controls backBtn fading and interaction with panes
 	$('#backBtn').click(function() {
 		
 		$(globalVars.activeDiv).animate(
@@ -398,11 +465,12 @@ function displayDiv(var1,var2) {
 	}
 }
 
+
 //loads the map
 function initialize() {
     var map_canvas = document.getElementById('mapCanvas');
     var map_options = {
-		center: new google.maps.LatLng(49.8994, -97.1392), //center map above winnipeg
+		center: new google.maps.LatLng(49.8994, -97.1392), //center map above Winnipeg
         zoom: 14,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
@@ -443,6 +511,8 @@ function findRoutes() {
 	}
 	
 }
+
+
 //draws route on map
 function draw(originPoint, destinationPoint, route) {
     var request = '';
@@ -469,9 +539,10 @@ function draw(originPoint, destinationPoint, route) {
     });
 }
 
+
 function populateBusRoutes(lon, lat) {
 
-	//doesn't work... sadly
+	//doesn't work... sadly :(
 	/*$.getJSON('http://whateverorigin.org/get?url=' + encodeURIComponent('http://api.winnipegtransit.com/stops.json?lon=-97.138&api-key=fynPUFGaKVGpCwXZatEl&lat=49.895&distance=250') + '&callback=?', function(data){
 		alert(data.contents);
 	});*/
@@ -521,13 +592,14 @@ function populateBusRoutes(lon, lat) {
 		list.appendChild(newDiv);		
 	}
 	
-
 }
+
 
 Date.prototype.addMinutes= function(h){
     this.setMinutes(this.getMinutes()+h);
     return this;
 }
+
 
 function clearMap() {
 	initialize();
