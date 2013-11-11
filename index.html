@@ -178,46 +178,63 @@ body{
 
 #sidebar { 
 	font-size: 200%;
-	width: 150px;
+	width: 170px;
 	height: 527px;
-	background-color: #FFFFFF;
+	background-color: #1F2F88;
 }
 
-#sidebar ul { 
-	margin: 0px; 
-	padding: 0px; 
-}
-
-#sidebar li {
-	margin-bottom: 15px;
+.sidebarBtn {
+	width: 150px;
+	height: 50px;
+	background-color: #1F2F88;
+	text-align: center;
 	padding-top: 10px;
-	padding-bottom: 10px;
-	list-style: none;
+	padding-bottom: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-bottom-color: #848DB5;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
 }
 
-#sidebar a{
-	color: #000;
+.sidebarBtn:hover {
+	background-color: #394fcb !important;
 	cursor: pointer;
-	display: block;
-	height: 25px;
-	line-height: 25px;
-	text-indent: 10px;                   
-	text-decoration: none;
-	width: 100%;
-}
- 
-ul.firstLevel { 
-	background: #FFFFFF;
-}
- 
-ul.firstLevel li {
-	border-bottom-color: #FFFFFF;
-	border-bottom-style: solid;
-	border-top: #FFFFFF;
-	border-bottom-style: solid;
-	border-width: 1px;
 }
 
+.infoDivBox {
+	position: absolute;
+	top: 0px;
+	left: 170px;
+	width: 675px;
+	height: 497px;
+	background-color: #FFFFFF;
+	color: #000000;
+	padding-left: 15px;
+	padding-right: 30px;
+	padding-top: -5px;
+	padding-bottom: 30px;
+}
+
+#infoDivabout {
+	display: inline;
+	z-index: 25;
+}
+
+#infoDivmaps {
+	display: none;
+	z-index: 25;
+}
+
+#infoDivfaq {
+	display: none;
+	z-index: 25;
+}
+
+#infoDivnews {
+	display: none;
+	z-index: 25;
+}
 
 #glance {
 	background-color: #4D5259;
@@ -348,17 +365,48 @@ ul.firstLevel li {
 	
 	
 	<div id="infoDiv">
+	
 		<div id="sidebar">
-			<ul class="firstLevel">
-				<li><a href="#">About</a></li>
-				<li><a href="#">FAQ</a></li>
-				<li><a href="#">History</a></li>
-				<li><a href="#">Maps</a></li>
-				<li><a href="#">News</a></li>
-			</ul>
+			<div class="sidebarBtn" id="about">
+				About
+			</div>
+			<div class="sidebarBtn" id="maps">
+				Maps
+			</div>
+			<div class="sidebarBtn" id="faq">
+				FAQ
+			</div>
+			<div class="sidebarBtn" id="news">
+				News
+			</div>
 		</div>
+		
+		<div class="infoDivBox" id="infoDivabout">
+			<h2>About</h2>
+			<br>
+			A page for information about us.
+		</div>
+		
+		<div class="infoDivBox" id="infoDivmaps">
+			<h2>Maps</h2>
+			<br>
+			A page for maps.
+		</div>
+		
+		<div class="infoDivBox" id="infoDivfaq">
+			<h2>FAQ</h2>
+			<br>
+			A page for FAQ.
+		</div>
+		
+		<div class="infoDivBox" id="infoDivnews">
+			<h2>News</h2>
+			<br>
+			A page for news.
+		</div>
+
 	</div>
-  
+	
 	<div id="info">
 		<div class="label">
 		MORE INFO
@@ -391,6 +439,7 @@ var points = new Array(); //holds all points on the map
 $(document).ready(function(){
 
 	globalVars.activeDiv = "";
+	globalVars.activeInfoDiv = "about";
 
 	//click event for plan pane
 	$('#plan').click(function() {
@@ -436,7 +485,6 @@ $(document).ready(function(){
 		$(globalVars.activeDiv).animate(
 			{width: ['428px', 'swing'], height: ['263px', 'swing']}, 
 			{ duration: "slow", easing: "easein" });
-		
 		if ( globalVars.activeDiv == "#plan" ){
 			$(globalVars.activeDiv).css('background-color','#DB5902');
 			displayDiv(globalVars.activeDiv);
@@ -454,6 +502,44 @@ $(document).ready(function(){
 	});
 
 	
+	$('#about').click(function() {
+		$("#infoDiv" + globalVars.activeInfoDiv).hide();
+		toggleSidebarBtn("#" + globalVars.activeInfoDiv,"#about");
+		globalVars.activeInfoDiv = "about";
+		displayInfoDiv("about",false);
+		
+		console.log(globalVars.activeInfoDiv);
+	});
+	
+	$('#maps').click(function() {
+		$("#infoDiv" + globalVars.activeInfoDiv).hide();
+		toggleSidebarBtn("#" + globalVars.activeInfoDiv,"#maps");
+		globalVars.activeInfoDiv = "maps";
+		displayInfoDiv("maps",false);
+		
+		console.log(globalVars.activeInfoDiv);
+	});
+	
+	$('#faq').click(function() {
+		$("#infoDiv" + globalVars.activeInfoDiv).hide();
+		toggleSidebarBtn("#" + globalVars.activeInfoDiv,"#faq");
+		globalVars.activeInfoDiv = "faq";
+		displayInfoDiv("faq",false);
+		
+		console.log(globalVars.activeInfoDiv);
+	});
+	
+	$('#news').click(function() {
+		$("#infoDiv" + globalVars.activeInfoDiv).hide();
+		toggleSidebarBtn("#" + globalVars.activeInfoDiv,"#news");
+		globalVars.activeInfoDiv = "news";
+		displayInfoDiv("news",false);
+		
+		console.log(globalVars.activeInfoDiv);
+	});
+
+
+	
 }); //document_ready
 
 
@@ -463,6 +549,17 @@ function displayDiv(var1,var2) {
 	}else{
 		$(var1 + 'Div').toggle();
 	}
+}
+
+function displayInfoDiv(var1,var2) {	
+	if ( $("#infoDiv" + var1).css('display') == 'none' ){
+		$("#infoDiv" + var1).show();
+	}
+}
+
+function toggleSidebarBtn(var1,var2){
+	$(var1).css('background-color', "#1F2F88");
+	$(var2).css('background-color', "#394fcb");
 }
 
 
