@@ -329,8 +329,14 @@ body{
 		</div>
 		<div id="mapCanvas"></div>
 		<div id="busRoutes">Getting Started!
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><u>Step 1:</u><br/>
-		Double-click on the map to select your <b>origin</b>.
+		<br/><br/><br/><br/><br/><br/><br/><u>Step 1:</u><br/>
+		Double-click on the map to select your <b>origin</b>.<br/><br/>
+		OR
+		<br/><br/>
+		Enter an address:
+		</br>
+		<input type="text" value="ex. 123 Home Street">
+		<input type="submit" value="Submit">
 		</div>
 	</div>
   
@@ -627,7 +633,7 @@ function draw(originPoint, destinationPoint, route) {
             travelMode: google.maps.DirectionsTravelMode.DRIVING
         };
     } else if (points.length == 1){
-		document.getElementById("busRoutes").innerHTML = "Getting Started!<br/><br/><br/><br/><br/><br/><br/><br/><br/><u>Step 2:</u><br/>Double-click on the map to select your <b>destination</b>."
+		document.getElementById("busRoutes").innerHTML = "Getting Started!<br/><br/><br/><br/><br/><br/><br/><u>Step 2:</u><br/>Double-click on the map to select your <b>destination</b>.<br/><br/>OR<br/><br/>Enter an address:</br><input type=\"text\" value=\"ex. 123 Home Street\"><input type=\"submit\" value=\"Submit\">";
         request = {
             origin: originPoint,
             destination: originPoint,
@@ -701,7 +707,7 @@ function clearMap() {
 	initialize();
 	points = new Array();
 	
-	var routes = document.getElementById("busRoutes").innerHTML = "Getting Started!<br/><br/><br/><br/><br/><br/><br/><br/><br/><u>Step 1:</u><br/>Double-click on the map to select your <b>origin</b>."
+	var routes = document.getElementById("busRoutes").innerHTML = "Getting Started!<br/><br/><br/><br/><br/><br/><br/><u>Step 1:</u><br/>Double-click on the map to select your <b>origin</b>.<br/><br/>OR<br/><br/>Enter an address:</br><input type=\"text\" value=\"ex. 123 Home Street\"><input type=\"submit\" value=\"Submit\">";
 }
 
 function saveMap() {
